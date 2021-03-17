@@ -24,6 +24,8 @@ This project provides a productive setup for building Spring Boot React applicat
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
 `com.rbondarovvich.Application`. 
 
+Backend will be accessible at http://localhost:8080
+
 ## Running the frontend for development mode
 
 **You will need Node 12+ and npm to run the dev server and build the project**.
@@ -33,3 +35,4 @@ There are multiple ways to run the backend. For development, you can use your fa
 $ cd ui
 $ npm start
 ```
+Frontend will be accessible at http://localhost:3000
