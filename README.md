@@ -22,7 +22,7 @@ This project provides a productive setup for building Spring Boot React applicat
 ## Running the backend for development mode
 
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
-`com.rbondarovich.Application
+`com.rbondarovich.Application`
 
 Backend will be accessible at http://localhost:8080
 
