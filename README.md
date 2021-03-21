@@ -1,4 +1,8 @@
-spring-boot-react-maven-starter
+Room service
+You can:
+- create a room
+- go in and turn on / off the lamp
+- you can enter a room located only in your country (check by IP) 
 -----
 
 ![Build](https://github.com/xebia-os/spring-boot-react-maven-starter/workflows/spring-boot-react-maven-starter%20CI/badge.svg)
