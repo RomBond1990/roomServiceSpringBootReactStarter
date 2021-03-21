@@ -1,4 +1,5 @@
-Room service
+##Room Service
+
 You can:
 - create a room
 - go in and turn on / off the lamp
