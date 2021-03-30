@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(WrongRoomException.class)
     public ResponseEntity<?> handleWrongRoomException(WrongRoomException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.OK);
+        return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
     }
 
 }

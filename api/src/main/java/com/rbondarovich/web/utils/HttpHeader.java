@@ -1,10 +1,6 @@
 package com.rbondarovich.web.utils;
 
 public enum HttpHeader {
-    AUTHORIZATION("Authorization"),
-    AUTHENTICATION_TYPE_BASIC("Basic"),
-    X_AUTH_TOKEN("X-AUTH-TOKEN"),
-    WWW_Authenticate("WWW-Authenticate"),
     X_FORWARDED_FOR("X-Forwarded-For"),
     PROXY_CLIENT_IP("Proxy-Client-IP"),
     WL_PROXY_CLIENT_IP("WL-Proxy-Client-IP"),

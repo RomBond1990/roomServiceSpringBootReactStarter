@@ -14,7 +14,9 @@ class RoomService {
     }
 
     getRoomById(roomId) {
-    return axios.get(ROOM_API_BASE_URL + '/' + roomId);
+    return axios.get(ROOM_API_BASE_URL + '/' + roomId).catch((e) => {
+        return e.response
+    });
     }
 
     updateRoom(room, roomId) {

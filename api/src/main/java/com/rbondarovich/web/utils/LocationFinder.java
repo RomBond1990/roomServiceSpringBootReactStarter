@@ -6,14 +6,12 @@ import com.maxmind.geoip2.model.CountryResponse;
 import com.maxmind.geoip2.record.Country;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import static com.rbondarovich.web.utils.HttpHeader.HTTP_CLIENT_IP;
@@ -25,6 +23,15 @@ import static com.rbondarovich.web.utils.HttpHeader.X_FORWARDED_FOR;
 
 @Component
 public class LocationFinder {
+
+    private DatabaseReader dbReader;
+
+    @PostConstruct
+    public void createDatabaseReader () throws IOException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File database = new File(classLoader.getResource("IP_DB.mmdb").getFile());
+        this.dbReader = new DatabaseReader.Builder(database).build();
+    }
 
     public String getRemoteIpFrom(HttpServletRequest request) {
         String ip = null;
@@ -61,29 +68,13 @@ public class LocationFinder {
         return ip != null && ip.length() > 0 && !"unknown".equalsIgnoreCase(ip);
     }
 
-    public static Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
-
-        Map<String, String> result = new HashMap<>();
-
-        Enumeration headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String key = (String) headerNames.nextElement();
-            String value = request.getHeader(key);
-            result.put(key, value);
-        }
-
-        return result;
-    }
-
     public Set<String> getCountryByIp(String ip) throws IOException, GeoIp2Exception {
+        if(this.dbReader == null) throw new NullPointerException("GeoLiteIP database not initialized");
+
         Set<String> countryNames = new HashSet<>();
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File database = new File(classLoader.getResource("IP_DB.mmdb").getFile());
-        DatabaseReader dbReader = new DatabaseReader.Builder(database).build();
-
         InetAddress ipAddress = InetAddress.getByName(ip);
-        CountryResponse response = dbReader.country(ipAddress);
+        CountryResponse response = this.dbReader.country(ipAddress);
 
         Country country = response.getCountry();
         countryNames.add(country.getName());

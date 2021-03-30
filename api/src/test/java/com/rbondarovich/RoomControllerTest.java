@@ -1,8 +1,11 @@
 package com.rbondarovich;
 
 import com.rbondarovich.service.bean.RoomBean;
+import com.rbondarovich.service.exception.ResourceNotFoundException;
+import com.rbondarovich.service.exception.WrongRoomException;
 import com.rbondarovich.testUtils.TestUtils;
 import lombok.NoArgsConstructor;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +49,29 @@ public class RoomControllerTest {
 
     @Test
     public void roomByIdTest() throws Exception {
-        this.mockMvc.perform(get("/api/rooms/1").accept(MediaType.APPLICATION_JSON))
+        this.mockMvc.perform(get("/api/rooms/1").accept(MediaType.APPLICATION_JSON).with(TestUtils.remoteAddr("37.214.49.20")))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string("{\"id\":1,\"name\":\"Roman room\",\"bulb\":false,\"country\":\"Belarus\"}")
                 );
+    }
+
+    @Test
+    public void givenNonExistentId_getResourceNotFoundException() throws Exception {
+        this.mockMvc.perform(get("/api/rooms/8").accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andExpect(result -> Assert.assertTrue(result.getResolvedException() instanceof ResourceNotFoundException))
+                .andExpect(result -> Assert.assertEquals("Room not exist with id: 8", result.getResolvedException().getMessage()));
+    }
+
+    @Test
+    public void tryingToEnterTheWrongRoom_getWrongRoomException() throws Exception {
+        this.mockMvc.perform(get("/api/rooms/4").accept(MediaType.APPLICATION_JSON).with(TestUtils.remoteAddr("37.214.49.20")))
+                .andDo(print())
+                .andExpect(status().isForbidden())
+                .andExpect(result -> Assert.assertTrue(result.getResolvedException() instanceof WrongRoomException))
+                .andExpect(result -> Assert.assertEquals("You can't enter the room which place in another country", result.getResolvedException().getMessage()));
     }
 
     @Test
@@ -80,7 +101,7 @@ public class RoomControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content()
-                        .string("[{\"id\":1,\"name\":\"Roman room\",\"bulb\":false,\"country\":\"Belarus\"}," +
+                        .string("[{\"id\":1,\"name\":\"ColdRoom\",\"bulb\":true,\"country\":\"Iceland\"}," +
                                 "{\"id\":2,\"name\":\"Roman room 2\",\"bulb\":false,\"country\":\"Belarus\"}," +
                                 "{\"id\":3,\"name\":\"Tomas room\",\"bulb\":false,\"country\":\"Poland\"}," +
                                 "{\"id\":4,\"name\":\"Vlad room\",\"bulb\":false,\"country\":\"Russia\"}]")

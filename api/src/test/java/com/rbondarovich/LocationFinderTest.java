@@ -15,6 +15,7 @@ public class LocationFinderTest {
     @Test
     public void givenIpShouldReturnCountryBelarus() throws IOException, GeoIp2Exception {
         LocationFinder locationFinder = new LocationFinder();
+        locationFinder.createDatabaseReader();
         Set<String> countryNames = locationFinder.getCountryByIp(IP);
         Assert.assertTrue(countryNames.contains("Беларусь"));
         Assert.assertTrue(countryNames.contains("Belarus"));

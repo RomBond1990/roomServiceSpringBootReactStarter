@@ -38,7 +38,8 @@ class RoomComponent extends Component {
     }
 
     getData() {
-        RoomService.getRoomById(this.state.id).then((res) => {
+        RoomService.getRoomById(this.state.id)
+            .then((res) => {
             let room = res.data;
             this.setState({
                 name: room.name,
@@ -59,7 +60,7 @@ class RoomComponent extends Component {
     }
 
     enterRoom() {
-        if (this.state.message == undefined) {
+        if (this.state.message === undefined) {
             return (<div>
                 {this.bulbLight()}
                 <button className="btn btn-success" onClick={this.lightUp}>On</button>
@@ -67,9 +68,10 @@ class RoomComponent extends Component {
             </div>)
         }
         if (typeof this.state.message != undefined) {
-            return <h3>{this.state.message}</h3>
-        }
+                    return <h3>{this.state.message}</h3>
+                }
     }
+
 
     render() {
         return (
