@@ -6,7 +6,6 @@ import com.maxmind.geoip2.model.CountryResponse;
 import com.maxmind.geoip2.record.Country;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -26,8 +25,7 @@ public class LocationFinder {
 
     private DatabaseReader dbReader;
 
-    @PostConstruct
-    public void createDatabaseReader () throws IOException {
+    public void createDatabaseReader() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File database = new File(classLoader.getResource("IP_DB.mmdb").getFile());
         this.dbReader = new DatabaseReader.Builder(database).build();
@@ -69,7 +67,7 @@ public class LocationFinder {
     }
 
     public Set<String> getCountryByIp(String ip) throws IOException, GeoIp2Exception {
-        if(this.dbReader == null) throw new NullPointerException("GeoLiteIP database not initialized");
+        if (this.dbReader == null) createDatabaseReader();
 
         Set<String> countryNames = new HashSet<>();
 
