@@ -1,4 +1,9 @@
-spring-boot-react-maven-starter
+## Room Service
+
+You can:
+- create a room
+- go in and turn on / off the lamp
+- you can enter a room located only in your country (check by IP) 
 -----
 
 ![Build](https://github.com/xebia-os/spring-boot-react-maven-starter/workflows/spring-boot-react-maven-starter%20CI/badge.svg)
@@ -22,7 +27,7 @@ This project provides a productive setup for building Spring Boot React applicat
 ## Running the backend for development mode
 
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
-`com.rbondarovvich.Application`. 
+`com.rbondarovich.Application`
 
 Backend will be accessible at http://localhost:8080
 
