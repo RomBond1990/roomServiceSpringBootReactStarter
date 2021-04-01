@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter, Route, Switch} from 'react-router-dom'
 import RoomsComponent from "./components/RoomsComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
@@ -8,7 +8,7 @@ import RoomComponent from "./components/RoomComponent";
 
 function App() {
     return (<div>
-            <BrowserRouter>
+            <HashRouter>
                 <HeaderComponent/>
                 <div className="container">
                     <Switch>
@@ -19,7 +19,7 @@ function App() {
                     </Switch>
                 </div>
                 <FooterComponent/>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     );
 }

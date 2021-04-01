@@ -9,9 +9,8 @@ class HeaderComponent extends Component {
             <div>
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                        <div><a href="/" className="navbar-brand">All Rooms</a></div>
-                        <div><a href="/add-room/_add" className="navbar-brand">Add Room</a></div>
-
+                        <NavLink to="/" className="navbar-brand">All Rooms</NavLink>
+                        <NavLink to="/add-room/_add" className="navbar-brand">Add Room</NavLink>
                     </nav>
                 </header>
             </div>

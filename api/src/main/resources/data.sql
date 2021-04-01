@@ -13,8 +13,8 @@ CREATE TABLE `room` (
   `country` varchar(255) NOT NULL,
   PRIMARY KEY (`id`));
 
-INSERT INTO `room` (`id`, `name`, `country`) VALUES ('1', 'Комната Романа', 'Belarus');
-INSERT INTO `room` (`id`, `name`, `country`) VALUES ('2', 'Комната Романа2', 'Belarus');
-INSERT INTO `room` (`id`, `name`, `country`) VALUES ('3', 'Комната Томаса', 'Poland');
-INSERT INTO `room` (`id`, `name`, `country`) VALUES ('4', 'Комната Владислава', 'Russia');
+INSERT INTO `room` (`id`, `name`, `country`) VALUES ('1', 'Roman room', 'Belarus');
+INSERT INTO `room` (`id`, `name`, `country`) VALUES ('2', 'Roman room 2', 'Belarus');
+INSERT INTO `room` (`id`, `name`, `country`) VALUES ('3', 'Tomas room', 'Poland');
+INSERT INTO `room` (`id`, `name`, `country`) VALUES ('4', 'Vlad room', 'Russia');
 

@@ -7,8 +7,8 @@ import com.maxmind.geoip2.record.Country;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +27,7 @@ public class LocationFinder {
 
     public void createDatabaseReader() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
-        File database = new File(classLoader.getResource("IP_DB.mmdb").getFile());
+        InputStream database = classLoader.getResourceAsStream("IP_DB.mmdb");
         this.dbReader = new DatabaseReader.Builder(database).build();
     }
 

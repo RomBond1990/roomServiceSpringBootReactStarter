@@ -11,7 +11,7 @@
     <artifactId>ui</artifactId>
 
     <properties>
-        <node.version>v12.18.3</node.version>
+        <node.version>v12.16.2</node.version>
         <frontend-maven-plugin.version>1.10.0</frontend-maven-plugin.version>
     </properties>
 
@@ -55,7 +55,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>
