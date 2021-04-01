@@ -29,7 +29,7 @@ This project provides a productive setup for building Spring Boot React applicat
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
 `com.rbondarovich.Application`
 
-Backend will be accessible at http://localhost:8080
+Backend will be accessible at `http://localhost:8080`
 
 ## Running the frontend for development mode
 
@@ -38,6 +38,21 @@ Backend will be accessible at http://localhost:8080
 
 ```
 $ cd ui
+$ npm install
 $ npm start
 ```
-Frontend will be accessible at http://localhost:3000
+Frontend will be accessible at `http://localhost:3000`
+
+## Running the full application
+
+You can build the package as a single artifact by running the 
+```
+mvn clean install
+```
+Next, you can run the application by executing:
+
+```
+$ java -jar api/target/spring-boot-react-starter-api.jar
+```
+
+The application will be accessible at `http://localhost:8080`

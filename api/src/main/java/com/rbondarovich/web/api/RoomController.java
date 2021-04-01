@@ -84,7 +84,7 @@ public class RoomController {
         Set<String> countryNames = locationFinder.getCountryByIp("37.214.49.20");
         for (String countryName : countryNames) {
             if (countryName.equals(room.getCountry())) {
-              return true;
+                return true;
             }
         }
         return false;
