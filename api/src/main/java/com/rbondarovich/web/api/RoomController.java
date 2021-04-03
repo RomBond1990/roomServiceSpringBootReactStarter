@@ -79,9 +79,10 @@ public class RoomController {
     private Boolean checkingAccessToRoom(
             RoomBean room,
             HttpServletRequest request) throws IOException, GeoIp2Exception {
-//        String ip = locationFinder.getRemoteIpFrom(request);
-//        Set<String> countryNames = locationFinder.getCountryByIp(ip);
-        Set<String> countryNames = locationFinder.getCountryByIp("37.214.49.20");
+
+        String ip = locationFinder.getRemoteIpFrom(request);
+        Set<String> countryNames = locationFinder.getCountryByIp(ip);
+//        Set<String> countryNames = locationFinder.getCountryByIp("37.214.49.20");
         for (String countryName : countryNames) {
             if (countryName.equals(room.getCountry())) {
                 return true;
