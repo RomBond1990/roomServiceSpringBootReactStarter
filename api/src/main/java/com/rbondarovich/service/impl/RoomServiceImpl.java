@@ -57,8 +57,8 @@ public class RoomServiceImpl implements RoomService {
 
     private Boolean checkingAccessToRoom(RoomBean room, String ip) {
 
-        Set<String> countryNames = locationFinder.getCountryByIp(ip);
-//        Set<String> countryNames = locationFinder.getCountryByIp("37.214.49.20");
+//        Set<String> countryNames = locationFinder.getCountryByIp(ip);
+        Set<String> countryNames = locationFinder.getCountryByIp("37.214.49.20");
         for (String countryName : countryNames) {
             if (countryName.equals(room.getCountry())) {
                 return true;
