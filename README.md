@@ -5,14 +5,15 @@ You can:
 - go in and turn on / off the lamp
 - you can enter a room located only in your country (check by IP) 
 -----
+#####Use deploy branch for deployment or for expose a local development server to the Internet 
 
-![Build](https://github.com/xebia-os/spring-boot-react-maven-starter/workflows/spring-boot-react-maven-starter%20CI/badge.svg)
+
+#####Use master branch for starting from IDE
+
 
 This project includes:
 1. https://github.com/RomBond1990/room-with-bulb-react
 2. https://github.com/RomBond1990/room_with_bulb_test
-
-And is based on https://github.com/xebia-os/spring-boot-react-maven-starter 
 
 
 This is a multi-module Spring Boot React Apache Maven starter app with good defaults. The react app is built using [create-react-app](https://github.com/facebookincubator/create-react-app).
