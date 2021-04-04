@@ -1,7 +1,7 @@
 package com.rbondarovich;
 
 import com.maxmind.geoip2.exception.GeoIp2Exception;
-import com.rbondarovich.web.utils.LocationFinder;
+import com.rbondarovich.service.utils.LocationFinder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +15,6 @@ public class LocationFinderTest {
     @Test
     public void givenIpShouldReturnCountryBelarus() throws IOException, GeoIp2Exception {
         LocationFinder locationFinder = new LocationFinder();
-        locationFinder.createDatabaseReader();
         Set<String> countryNames = locationFinder.getCountryByIp(IP);
         Assert.assertTrue(countryNames.contains("Беларусь"));
         Assert.assertTrue(countryNames.contains("Belarus"));

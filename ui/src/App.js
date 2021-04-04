@@ -3,7 +3,7 @@ import {HashRouter, Route, Switch} from 'react-router-dom'
 import RoomsComponent from "./components/RoomsComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
-import CreateRoomComponent from "./components/CreateRoomComponent";
+import UpdateCreateRoomComponent from "./components/UpdateCreateRoomComponent";
 import RoomComponent from "./components/RoomComponent";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
                     <Switch>
                         <Route path = "/" exact component = {RoomsComponent}/>
                         <Route path = "/api/rooms" component = {RoomsComponent}/>
-                        <Route path = "/add-room/:id" component = {CreateRoomComponent}/>
+                        <Route path = "/add-room/:id" component = {UpdateCreateRoomComponent}/>
                         <Route path = "/view-room/:id" component = {RoomComponent}/>
                     </Switch>
                 </div>

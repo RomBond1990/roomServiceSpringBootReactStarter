@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RoomService from '../services/RoomService'
 
-class CreateRoomComponent extends Component {
+class UpdateCreateRoomComponent extends Component {
     constructor(props) {
         super(props);
 
@@ -100,4 +100,4 @@ class CreateRoomComponent extends Component {
     }
 }
 
-export default CreateRoomComponent;
+export default UpdateCreateRoomComponent;

@@ -30,6 +30,7 @@ public class TestUtils {
             return put(uri)
                     .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON)
+                    .with(TestUtils.remoteAddr("37.214.49.20"))
                     .content(json);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

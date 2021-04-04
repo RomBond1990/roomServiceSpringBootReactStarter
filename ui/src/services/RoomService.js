@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOM_API_BASE_URL = "http://localhost:8080/api/rooms"
+const ROOM_API_BASE_URL = "/api/rooms"
 
 
 class RoomService {

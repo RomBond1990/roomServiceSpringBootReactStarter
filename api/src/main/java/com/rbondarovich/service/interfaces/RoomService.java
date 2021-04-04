@@ -6,7 +6,7 @@ public interface RoomService {
 
     Iterable<RoomBean> getAllRooms();
 
-    RoomBean getRoomById(Long id);
+    RoomBean getRoomById(Long id, String ip);
 
     void saveRoom(RoomBean user);
 
