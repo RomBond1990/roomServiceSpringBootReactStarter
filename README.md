@@ -38,9 +38,9 @@ Backend will be accessible at `http://localhost:8080`
 
 
 ```
-$ cd ui
-$ npm install
-$ npm start
+ cd ui
+ npm install
+ npm start
 ```
 Frontend will be accessible at `http://localhost:3000`
 
@@ -53,7 +53,46 @@ mvn clean install
 Next, you can run the application by executing:
 
 ```
-$ java -jar api/target/spring-boot-react-starter-api.jar
+java -jar api/target/spring-boot-react-starter-api.jar
 ```
 
 The application will be accessible at `http://localhost:8080`
+
+## Docker Setup
+
+First you have to build a jar in the /api
+
+```
+cd api
+mvn clean install
+cd ..
+```
+
+To build the docker images and start the containers using Docker Compose run the following command. 
+
+
+for *nix systems:
+
+```
+sh docker.sh
+```
+for windows:
+
+```
+bash docker.sh
+```
+
+You can view running docker containers by executing following command.
+
+```
+docker container ps
+``` 
+
+To stop and remove all docker container you have to run following command. 
+This command should be run from project root.
+
+```
+docker-compose stop && docker-compose rm --force
+``` 
+
+The application will be accessible at `http://localhost`
