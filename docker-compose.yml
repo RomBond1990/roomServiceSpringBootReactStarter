@@ -1,0 +1,12 @@
+version: "3"
+services:
+  ui:
+    image: rb/room-ui
+    ports:
+      - "80:80"
+    links:
+      - api
+  api:
+    image: rb/room-api
+    ports:
+      - "8080:8080"
